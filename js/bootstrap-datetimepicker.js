@@ -694,7 +694,7 @@
         html += '<th class="dow">' + dates[this.language].daysMin[(dowCnt++) % 7] + '</th>';
       }
       html += '</tr>';
-      this.picker.find('.datetimepicker-days thead').append(html);
+      this.picker.find('.datetimepicker-days thead:eq(2)').append(html);
     },
 
     fillMonths: function () {
@@ -723,6 +723,8 @@
         endMonth = this.endDate.getUTCMonth() + 1,
         currentDate = (new UTCDate(this.date.getUTCFullYear(), this.date.getUTCMonth(), this.date.getUTCDate())).valueOf(),
         today = new Date();
+
+
       this.setTitle('.datetimepicker-days', dates[this.language].months[month] + ' ' + year)
       if (this.formatViewType === 'time') {
         var formatted = this.getFormattedDate();
@@ -1880,6 +1882,8 @@
     '<div class="datetimepicker-days">' +
     '<table class=" table-condensed">' +
     DPGlobal.headTemplate +
+    '</table>' +
+    '<table class="table-condensed">' +
     '<tbody></tbody>' +
     DPGlobal.footTemplate +
     '</table>' +
